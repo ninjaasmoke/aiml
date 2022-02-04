@@ -32,12 +32,12 @@
   min-width: 240px;
   border: 1px solid transparent;
 
-  font-family:'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .gridItem:hover {
   border: 1px solid var(--border);
-  box-shadow: 0 0 10px 10px var(--hover);
+  box-shadow: 0 0 10px 8px var(--hover);
   text-decoration: underline;
 }
 
@@ -55,7 +55,7 @@
   padding: 10px;
   cursor: pointer;
   font-weight: bold;
-  font-family:'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   padding: 4px 20px;
 }
 
