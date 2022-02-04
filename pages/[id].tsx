@@ -61,6 +61,8 @@ const Program: NextPage = () => {
                         backDelay={2000}
                         loop
                         style={{
+                            // fontSize: '2em',
+                            fontWeight: 'bold',
                             color: 'var(--accent)',
                             position: 'absolute',
                             bottom: '0',
