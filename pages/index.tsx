@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { progs } from '../data/progs'
 import styles from '../styles/Home.module.css'
-import Typed from "react-typed";
+import Typed from "react-typed"
 
 const Home: NextPage = () => {
   return (
