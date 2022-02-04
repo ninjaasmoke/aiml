@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         <hr />
         <div className={styles.grid}>
           {
-            Object.keys(progs).map((key) => {
+            Object.keys(progs).sort((a,b) => progs[a].id > progs[b].id ? 1: -1).map((key) => {
               return (
                 <GridItem
                   key={key}
