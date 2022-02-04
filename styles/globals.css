@@ -22,3 +22,10 @@ hr {
   border-left: 1px solid var(--border);
   border-right: 1px solid var(--border);
 }
+
+button {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
