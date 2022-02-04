@@ -6,6 +6,7 @@ import Head from 'next/head';
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import BackButton from "../components/back.component";
 
 const Program: NextPage = () => {
     const router = useRouter();
@@ -17,6 +18,8 @@ const Program: NextPage = () => {
                 <title>{nameA(id)}</title>
                 <meta name="description" content={"Code for " + nameA(id) + " in Python."} />
             </Head>
+
+            <BackButton />
 
             <h1>Program {id}</h1>
             <p style={{
