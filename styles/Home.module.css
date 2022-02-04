@@ -47,7 +47,7 @@
 }
 
 .copy {
-  margin-left: 40px;
+  margin: 0 40px;
   background-color: transparent;
   color: var(--accent);
   border: none;
@@ -68,4 +68,12 @@
   border-radius: 8px;
   padding: 20px;
   background-color: var(--hover);
+}
+
+.instr {
+  background-color: var(--border);
+  color: var(--accent);
+  padding: 2px;
+  border-radius: 4px;
+  font-size: 0.6rem;
 }

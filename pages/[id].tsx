@@ -31,6 +31,9 @@ const Program: NextPage = () => {
                     Copy
                 </button>
             </p>
+            <p>
+                or <code className={styles.instr}>CTRL + A</code> and <code className={styles.instr}>CTRL + C</code> to copy code
+            </p>
             <SyntaxHighlighter language="python" style={vscDarkPlus} showLineNumbers customStyle={{
                 borderRadius: '8px',
                 padding: '40px 8px',

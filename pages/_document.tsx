@@ -8,7 +8,6 @@ class Document extends NextDocument<Props> {
     return (
       <Html>
         <Head>
-          <title>AI-ML Lab Programs</title>
           <meta name="title" content="AI-ML Lab Programs" />
           <meta name="description" content="VTU 7th Sem 2018 scheme, AI-ML Lab Programs." />
           <meta property="og:type" content="website" />

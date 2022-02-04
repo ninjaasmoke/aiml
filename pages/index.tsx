@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { progs } from '../data/progs'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -15,25 +16,16 @@ const Home: NextPage = () => {
         <hr />
         <div className={styles.grid}>
           {
-            <GridItem 
-              title="Prog 6"
-              data="Naive Bayes Classifier"
-              id="6"
-            />
-          }
-          {
-            <GridItem
-              title="Prog 7"
-              data="K Means Clustering"
-              id="7"
-            />
-          }
-          {
-            <GridItem
-              title="Prog 8"
-              data="K Nearest Neighbors"
-              id="8"
-            />
+            Object.keys(progs).map((key) => {
+              return (
+                <GridItem
+                  key={key}
+                  title={"Prog "+progs[key].id}
+                  data={progs[key].name}
+                  id={key}
+                />
+              )
+            })
           }
         </div>
       </main>
