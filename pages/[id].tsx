@@ -4,7 +4,7 @@ import { progs } from '../data/progs';
 import styles from '../styles/Home.module.css';
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 const Program: NextPage = () => {
     const router = useRouter();
