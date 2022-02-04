@@ -1,16 +1,17 @@
+:root {
+  --bg: black;
+  --color: #d0d0d0;
+  --accent: #ecce27;
+
+  --border: #ecce2746;
+  --hover: #4e565f34;
+}
+
 html,
 body {
+  background-color: var(--bg);
+  color: var(--color);
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+  font-family: 'Helvetica', sans-serif;
 }
