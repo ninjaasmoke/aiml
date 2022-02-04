@@ -133,7 +133,7 @@ def splitdataset(dataset, splitratio):
 	trainset = []
 	copy = list(dataset);    
 	while len(trainset) < trainsize:
-#generate indices for the dataset list randomly to pick ele for training data
+        #generate indices for the dataset list randomly to pick ele for training data
 		index = random.randrange(len(copy));       
 		trainset.append(copy.pop(index))    
 	return [trainset, copy]
@@ -141,8 +141,8 @@ def splitdataset(dataset, splitratio):
 
 def separatebyclass(dataset):
 	separated = {} #dictionary of classes 1 and 0 
-#creates a dictionary of classes 1 and 0 where the values are 
-#the instances belonging to each class
+    #creates a dictionary of classes 1 and 0 where the values are 
+    #the instances belonging to each class
 	for i in range(len(dataset)):
 		vector = dataset[i]
 		if (vector[-1] not in separated):
@@ -168,8 +168,8 @@ def summarizebyclass(dataset):
     #print(separated)
 	summaries = {}
 	for classvalue, instances in separated.items(): 
-#for key,value in dic.items()
-#summaries is a dic of tuples(mean,std) for each class value        
+        #for key,value in dic.items()
+        #summaries is a dic of tuples(mean,std) for each class value        
 		summaries[classvalue] = summarize(instances) #summarize is used to cal to mean and std
 	return summaries
 
