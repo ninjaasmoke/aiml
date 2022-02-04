@@ -1,9 +1,9 @@
 :root {
   --bg: black;
   --color: #d0d0d0;
-  --accent: #ecce27;
+  --accent: #03a062;
 
-  --border: #ecce2746;
+  --border: #03a06246;
   --hover: #4e565f34;
 }
 
@@ -13,5 +13,9 @@ body {
   color: var(--color);
   padding: 0;
   margin: 0;
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+hr {
+  border: 1px solid var(--border);
 }
