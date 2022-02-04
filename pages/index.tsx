@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1>AI ML Programs</h1>
         <Typed
-            strings={["VTU 2018 Scheme", "7th Semester"]}
+            strings={["VTU 2018 Scheme", "7th Semester", "CSE"]}
             typeSpeed={40}
             backSpeed={50}
             backDelay={3000}
@@ -47,9 +47,10 @@ const GridItem = ({ title, data, id }: { title: string, data: string, id: string
   return (
     <Link href={id}>
       <div className={styles.gridItem}>
-        <p>{title}</p>
-        <p>
-          {data}
+        <p className={styles.underLine}>{title}</p>
+        <p className={styles.underLine}>{data}</p>
+        <p style={{color: "var(--color)", fontSize: "0.8rem"}}>
+          See Code &rarr;
         </p>
       </div>
     </Link>

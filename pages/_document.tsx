@@ -8,6 +8,16 @@ class Document extends NextDocument<Props> {
     return (
       <Html>
         <Head>
+          {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+
+
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet" /> */}
+
+
           <meta name="title" content="AI-ML Lab Programs" />
           <meta name="description" content="VTU 7th Sem 2018 scheme, AI-ML Lab Programs." />
           <meta property="og:type" content="website" />
