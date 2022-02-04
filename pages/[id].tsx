@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { useRouter } from 'next/router';
 import { progs } from '../data/progs';
 import styles from '../styles/Home.module.css';
+import Head from 'next/head';
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
@@ -11,6 +12,12 @@ const Program: NextPage = () => {
     const { id } = router.query;
     return (
         <div className={styles.prog}>
+
+            <Head>
+                <title>{nameA(id)}</title>
+                <meta name="description" content={"Code for " + nameA(id) + " in Python."} />
+            </Head>
+
             <h1>Program {id}</h1>
             <p style={{
                 color: 'var(--accent)',
@@ -40,7 +47,13 @@ const Program: NextPage = () => {
 
 const codeA = (id: string | string[] | undefined) => {
     if (id && (typeof id === "string") && progs[id]["code"])
-    return progs[id]["code"];
+        return progs[id]["code"];
+    return "";
+}
+
+const nameA = (id: string | string[] | undefined) => {
+    if (id && (typeof id === "string") && progs[id]["name"])
+        return progs[id]["name"];
     return "";
 }
 
