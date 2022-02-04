@@ -54,6 +54,9 @@ const Program: NextPage = () => {
             {
                 codeA(id).length === 0 &&
                 <>
+                    <Head>
+                        <title>404 Error | Not found</title>
+                    </Head>
                     <Typed
                         strings={[`Prog ${id}: Not Found`, `Prog ${id}: Missing`, `Prog ${id}: Error 404`]}
                         typeSpeed={40}
@@ -61,7 +64,6 @@ const Program: NextPage = () => {
                         backDelay={2000}
                         loop
                         style={{
-                            // fontSize: '2em',
                             fontWeight: 'bold',
                             color: 'var(--accent)',
                             position: 'absolute',
