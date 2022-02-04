@@ -19,6 +19,12 @@
   margin-top: 20px;
 }
 
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: auto;
+  }
+}
+
 .gridItem {
   border-radius: 5px;
   padding: 20px;
