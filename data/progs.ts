@@ -102,7 +102,7 @@ y_pred=classifier.predict(x_test)
 print(len(x_test))
 
 for r in range(0,len(x_test)):
-	print(" Sample:", str(x_test[r]), " Actual-label:", str(y_test[r]), " Predictedlabel:",str
+	print(" Sample:", str(x_test[r]), " Actual-label:", str(y_test[r]), " Predictedlabel:",str(y_pred[r]))
 	print("Classification Accuracy :" , classifier.score(x_test,y_test));
 
 x_test = [[3,4,5,2],[5,4,5,2]]
