@@ -43,7 +43,7 @@ y = [label[c] for c in dataset.iloc[:, -1]]
 
 def drawGraph(labels, title, num):
 	plt.subplot(2, 2, num)
-	plt.scatter(X.Petal_Length, X.Petal_Width, c=colormap[labels])
+	plt.scatter(X.Petal_Length, X.Petal_Width, c=labels)
 	plt.title(title)
 	plt.xlabel('Petal Length')
 	plt.ylabel('Petal Width')
