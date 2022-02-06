@@ -3,11 +3,10 @@ export const progs: { [id: string]: { [id: string]: string } } = {
 		"id": "6",
 		"name": "Naive Bayes Classifier",
 		"code":
-			`import csv
-import pandas as pd
+			`import pandas as pd
 import numpy as np
-
 from sklearn.naive_bayes import GaussianNB
+
 data = pd.read_csv('prima_indian_diabetes.csv')
 
 x = np.array(data.iloc[:,0:-1])
