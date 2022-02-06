@@ -27,9 +27,9 @@ print("Predicted Value:", predicted)`
 		"id": "7",
 		"name": "K Means Clustering",
 		"code":
-			`import matplotlib.pyplot as plt
-import pandas as pd
+			`import pandas as pd
 import numpy as np
+from matplotlib import pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.mixture import GaussianMixture
 
@@ -40,22 +40,23 @@ X = dataset.iloc[:,0:-1]
 label = {'Iris-setosa': 0,'Iris-versicolor': 1, 'Iris-virginica': 2} 
 y = [label[c] for c in dataset.iloc[:, -1]]
 
-def drawGraph(labels, title, num):
+def drawGraph(labels, title):
 	plt.scatter(X.Petal_Length, X.Petal_Width, c=labels)
 	plt.title(title)
 	plt.xlabel('Petal Length')
 	plt.ylabel('Petal Width')
+	plt.show()
 
-drawGraph(y, "Real Clusters", 1)
+drawGraph(y, "Real Clusters")
 
 model = KMeans(3)
 model.fit(X)
 
-drawGraph(model.labels_, "K Means Clusters", 2)
+drawGraph(model.labels_, "K Means Clusters")
 
 gm = GaussianMixture(3).fit(X)
 labels = gm.predict(X)
-drawGraph(labels, "Gaussian Cluster", 3)`
+drawGraph(labels, "Gaussian Cluster")`
 	},
 	"8": {
 		"id": "8",
