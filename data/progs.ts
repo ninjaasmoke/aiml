@@ -21,7 +21,19 @@ model = GaussianNB()
 model.fit(x,y)
 
 predicted= model.predict([[6,149,78,35,0,34,0.625,54]])
-print("Predicted Value:", predicted)`
+print("Predicted Value:", predicted)`,
+		"output": 
+`
+Sample: [  1.    153.     82.     42.    485.     40.6     0.687  23.   ]  Actual:  0  Predicted:  1
+Sample: [  3.   111.    58.    31.    44.    29.5    0.43  22.  ]  Actual:  0  Predicted:  0
+Sample: [  3.    173.     82.     48.    465.     38.4     2.137  25.   ]  Actual:  1  Predicted:  1
+Sample: [  0.    134.     58.     20.    291.     26.4     0.352  21.   ]  Actual:  0  Predicted:  0
+Sample: [3.00e+00 1.58e+02 6.40e+01 1.30e+01 3.87e+02 3.12e+01 2.95e-01 2.40e+01]  Actual:  0  Predicted:  1
+Sample: [  3.  142.   80.   15.    0.   32.4   0.2  63. ]  Actual:  0  Predicted:  0
+Sample: [  5.    111.     72.     28.      0.     23.9     0.407  27.   ]  Actual:  0  Predicted:  0
+Sample: [ 2.    84.    50.    23.    76.    30.4    0.968 21.   ]  Actual:  0  Predicted:  0
+Accuracy:  0.75
+`,
 	},
 	"7": {
 		"id": "7",

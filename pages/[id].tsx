@@ -3,15 +3,53 @@ import { useRouter } from 'next/router';
 import { progs } from '../data/progs';
 import styles from '../styles/Home.module.css';
 import Head from 'next/head';
+import Image from 'next/image';
+
+import HeadImg from "../public/head.png";
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import vscDarkPlus from 'react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus';
+import ghcolors from 'react-syntax-highlighter/dist/cjs/styles/prism/ghcolors';
 import BackButton from "../components/back.component";
 import Typed from "react-typed"
 
 const Program: NextPage = () => {
     const router = useRouter();
     const { id } = router.query;
+    if (id && typeof id === 'string' && id.includes("j")) return (
+        <div className={styles.jupyter}>
+            <Head>
+                <title>Jupyter Notebook</title>
+            </Head>
+
+            <main>
+                <section className={styles.headImg}>
+                    <Image src={HeadImg} />
+                </section>
+                <div className={styles.jupCode}>
+                    <div className={styles.jupInner}>
+                        <div className={styles.jupInnerBar}>
+                            In [1]:
+                        </div>
+                        <div className={styles.jupInnerCode}>
+                            <SyntaxHighlighter language="python" style={ghcolors} showLineNumbers customStyle={{
+                                userSelect: 'text',
+                                border: '1px solid #d1d1d1',
+                                borderRadius: '2px',
+                            }}>
+                                {
+                                    codeA(id.charAt(0))
+                                }
+                            </SyntaxHighlighter>
+                            <pre>
+                                {outputA(id.charAt(0))}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    );
     return (
         <div className={styles.prog}>
             {
@@ -97,5 +135,15 @@ const nameA = (id: string | string[] | undefined) => {
         return "";
     }
 }
+
+const outputA = (id: string | string[] | undefined) => {
+    try {
+        if (id && (typeof id === "string") && progs[id] && progs[id]["output"])
+            return progs[id]["output"];
+        return "";
+    } catch (error) {
+        return "";
+    }
+} 
 
 export default Program;
