@@ -1,4 +1,91 @@
 export const progs: { [id: string]: { [id: string]: string } } = {
+	"1": {
+		"id": "1",
+		"name": "A Star Search",
+		"code":
+			`class Graph:
+
+		def __init__(self, adjacency_list):
+			self.adjacency_list = adjacency_list
+	
+		def get_neighbors(self, v):
+			return self.adjacency_list[v]
+		
+		def h(self, n):
+			H = {
+				'A': 1,
+				'B': 1,
+				'C': 1,
+				'D': 1
+			}
+	
+			return H[n]
+	
+		def a_star_algorithm(self, start_node, stop_node):
+			open_list = set([start_node])
+			closed_list = set([])
+	
+			g = {}
+	
+			g[start_node] = 0
+	
+			parents = {}
+			parents[start_node] = start_node
+	
+			while len(open_list) > 0:
+				n = None
+	
+				for v in open_list:
+					if n == None or g[v] + self.h(v) < g[n] + self.h(n):
+						n = v;
+	
+				if n == None:
+					print('Path does not exist!')
+					return None
+	
+				if n == stop_node:
+					reconst_path = []
+	
+					while parents[n] != n:
+						reconst_path.append(n)
+						n = parents[n]
+	
+					reconst_path.append(start_node)
+	
+					reconst_path.reverse()
+	
+					print('Path found: {}'.format(reconst_path))
+					return reconst_path
+	
+				for (m, weight) in self.get_neighbors(n):
+					if m not in open_list and m not in closed_list:
+						open_list.add(m)
+						parents[m] = n
+						g[m] = g[n] + weight
+						
+					else:
+						if g[m] > g[n] + weight:
+							g[m] = g[n] + weight
+							parents[m] = n
+	
+							if m in closed_list:
+								closed_list.remove(m)
+								open_list.add(m)
+				open_list.remove(n)
+				closed_list.add(n)
+	
+			print('Path does not exist!')
+			return None
+		adjacency_list = {
+			'A': [('B', 1), ('C', 3), ('D', 7)],
+			'B': [('D', 5)],
+			'C': [('D', 12)]
+		}
+		graph1 = Graph(adjacency_list)
+		graph1.a_star_algorithm('A', 'D')
+		`,
+		"output": "Path found: ['A', 'B', 'D']",
+	},
 	"6": {
 		"id": "6",
 		"name": "Naive Bayes Classifier",
@@ -22,8 +109,8 @@ model.fit(x,y)
 
 predicted= model.predict([[6,149,78,35,0,34,0.625,54]])
 print("Predicted Value:", predicted)`,
-		"output": 
-`
+		"output":
+			`
 Sample: [  1.    153.     82.     42.    485.     40.6     0.687  23.   ]  Actual:  0  Predicted:  1
 Sample: [  3.   111.    58.    31.    44.    29.5    0.43  22.  ]  Actual:  0  Predicted:  0
 Sample: [  3.    173.     82.     48.    465.     38.4     2.137  25.   ]  Actual:  1  Predicted:  1
