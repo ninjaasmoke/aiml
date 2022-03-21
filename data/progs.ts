@@ -76,14 +76,13 @@ export const progs: { [id: string]: { [id: string]: string } } = {
 	
 			print('Path does not exist!')
 			return None
-		adjacency_list = {
-			'A': [('B', 1), ('C', 3), ('D', 7)],
-			'B': [('D', 5)],
-			'C': [('D', 12)]
-		}
-		graph1 = Graph(adjacency_list)
-		graph1.a_star_algorithm('A', 'D')
-		`,
+adjacency_list = {
+	'A': [('B', 1), ('C', 3), ('D', 7)],
+	'B': [('D', 5)],
+	'C': [('D', 12)]
+}
+graph1 = Graph(adjacency_list)
+graph1.a_star_algorithm('A', 'D')`,
 		"output": "Path found: ['A', 'B', 'D']",
 	},
 	"6": {
