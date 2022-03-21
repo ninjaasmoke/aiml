@@ -115,10 +115,11 @@ def learn(concepts, target):
 				else:
 					g[x][x] = '?'
 					
-	indeces = [i for i, val in enumerate(g) if val == ['?', '?', '?', '?', '?', '?']]
-	for i in indeces:
-		g.remove(['?', '?', '?', '?', '?', '?'])
-	return s, g
+	G = []
+	for val in g:
+		if val != ['?', '?', '?', '?', '?', '?']:
+			G.append(val)
+	return s, G
 
 s, g = learn(concepts, targets)
 
