@@ -18,7 +18,6 @@ export const progs: { [id: string]: { [id: string]: string } } = {
 				'C': 1,
 				'D': 1
 			}
-	
 			return H[n]
 	
 		def a_star_algorithm(self, start_node, stop_node):
@@ -26,7 +25,6 @@ export const progs: { [id: string]: { [id: string]: string } } = {
 			closed_list = set([])
 	
 			g = {}
-	
 			g[start_node] = 0
 	
 			parents = {}
@@ -44,25 +42,24 @@ export const progs: { [id: string]: { [id: string]: string } } = {
 					return None
 	
 				if n == stop_node:
-					reconst_path = []
+					recon = []
 	
 					while parents[n] != n:
-						reconst_path.append(n)
+						recon.append(n)
 						n = parents[n]
 	
-					reconst_path.append(start_node)
+					recon.append(start_node)
+					recon.reverse()
 	
-					reconst_path.reverse()
-	
-					print('Path found: {}'.format(reconst_path))
-					return reconst_path
+					print(f'Path found: {recon}')
+					return recon
 	
 				for (m, weight) in self.get_neighbors(n):
 					if m not in open_list and m not in closed_list:
 						open_list.add(m)
 						parents[m] = n
 						g[m] = g[n] + weight
-						
+
 					else:
 						if g[m] > g[n] + weight:
 							g[m] = g[n] + weight
@@ -71,11 +68,13 @@ export const progs: { [id: string]: { [id: string]: string } } = {
 							if m in closed_list:
 								closed_list.remove(m)
 								open_list.add(m)
+
 				open_list.remove(n)
 				closed_list.add(n)
 	
 			print('Path does not exist!')
 			return None
+
 adjacency_list = {
 	'A': [('B', 1), ('C', 3), ('D', 7)],
 	'B': [('D', 5)],
