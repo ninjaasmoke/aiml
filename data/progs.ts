@@ -84,6 +84,52 @@ graph1 = Graph(adjacency_list)
 graph1.a_star_algorithm('A', 'D')`,
 		"output": "Path found: ['A', 'B', 'D']",
 	},
+	"3": {
+		"id": "3",
+		"name": "Candidate Elimination",
+		"code":
+			`import numpy as np
+import pandas as pd
+
+data = pd.read_csv('candi.csv')
+			
+concepts = np.array(data.iloc[:,0:-1])
+targets = np.array(data.iloc[:,-1])
+			
+def learn(concepts, target):
+	s = concepts[0].copy()
+	g = [["?" for i in range(len(s))] for i in range(len(s))]
+				
+	print(f'Specific: {s}\nGeneral: {g}\n\n')
+				
+	for i, h in enumerate(concepts):
+		
+		for x in range(len(s)):
+			if target[i] == "yes":
+				if h[x] != s[x]:
+					s[x] = '?'
+					g[x][x] = '?'
+			else:
+				if h[x] != s[x]:
+					g[x][x] = s[x]
+				else:
+					g[x][x] = '?'
+					
+	indeces = [i for i, val in enumerate(g) if val == ['?', '?', '?', '?', '?', '?']]
+	for i in indeces:
+		g.remove(['?', '?', '?', '?', '?', '?'])
+	return s, g
+
+s, g = learn(concepts, targets)
+
+print(f'Specific: {s}\nGeneral: {g}')`,
+		"output": `Specific: ['sunny' 'warm' 'normal' 'strong' 'warm' 'same']
+General: [['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?']]
+
+
+Specific: ['sunny' 'warm' '?' 'strong' '?' '?']
+General: [['sunny', '?', '?', '?', '?', '?'], ['?', 'warm', '?', '?', '?', '?']]`,
+	},
 	"6": {
 		"id": "6",
 		"name": "Naive Bayes Classifier",
