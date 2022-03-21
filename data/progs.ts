@@ -100,7 +100,7 @@ def learn(concepts, target):
 	s = concepts[0].copy()
 	g = [["?" for i in range(len(s))] for i in range(len(s))]
 				
-	print(f'Specific: {s}\nGeneral: {g}\n\n')
+	print(f'Specific: {s}\\nGeneral: {g}\\n\\n')
 				
 	for i, h in enumerate(concepts):
 		
