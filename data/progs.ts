@@ -122,7 +122,7 @@ def learn(concepts, target):
 
 s, g = learn(concepts, targets)
 
-print(f'Specific: {s}\nGeneral: {g}')`,
+print(f'Specific: {s}\\nGeneral: {g}')`,
 		"output": `Specific: ['sunny' 'warm' 'normal' 'strong' 'warm' 'same']
 General: [['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?']]
 
