@@ -145,3 +145,8 @@
   width: 98%;
   margin-right: 8px;
 }
+
+.output {
+  max-width: 1000px;
+  text-overflow: ellipsis;
+}

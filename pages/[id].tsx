@@ -42,7 +42,7 @@ const Program: NextPage = () => {
                                     codeA(id.charAt(0))
                                 }
                             </SyntaxHighlighter>
-                            <pre>
+                            <pre className={styles.output}>
                                 {outputA(id.charAt(0))}
                             </pre>
                         </div>
