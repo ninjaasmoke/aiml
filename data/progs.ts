@@ -323,13 +323,15 @@ def infoGain(data,features,target):
 
 def id3(data, features, target, pnode):
 	
-	if len(np.unique(data[target])) == 1:
-		return np.unique(data[target])[0]
-	
+	t = np.unique(data[target])
+		
+	if len(t) == 1:
+		return t[0]
+
 	if len(features) == 0:
 		return pnode
-	
-	pnode = np.unique(data[target])[np.argmax(np.unique(data[target])[1])]
+
+	pnode = t[np.argmax(t[1])]
 	
 	IG = [infoGain(data,f,target) for f in features]
 	index = np.argmax(IG)
