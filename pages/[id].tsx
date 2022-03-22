@@ -37,13 +37,15 @@ const Program: NextPage = () => {
                                 border: '1px solid #d1d1d1',
                                 borderRadius: '2px',
                                 padding: '16px 0',
+                                fontSize: '14px',
+                                fontWeight: 'bold',
                             }}>
                                 {
-                                    codeA(id.charAt(0))
+                                    codeA(id.match(/\d+/)![0])
                                 }
                             </SyntaxHighlighter>
                             <pre className={styles.output}>
-                                {outputA(id.charAt(0))}
+                                {outputA(id.match(/\d+/)![0])}
                             </pre>
                         </div>
                     </div>
