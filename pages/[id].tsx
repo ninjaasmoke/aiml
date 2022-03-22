@@ -8,8 +8,7 @@ import Image from 'next/image';
 import HeadImg from "../public/head.png";
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import vscDarkPlus from 'react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus';
-import ghcolors from 'react-syntax-highlighter/dist/cjs/styles/prism/ghcolors';
+import { vscDarkPlus, coy } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import BackButton from "../components/back.component";
 import Typed from "react-typed"
 
@@ -20,6 +19,7 @@ const Program: NextPage = () => {
         <div className={styles.jupyter}>
             <Head>
                 <title>Jupyter Notebook</title>
+                <link rel="icon" href="/Jupyter.svg" sizes="any" type="image/svg+xml" />
             </Head>
 
             <main>
@@ -32,10 +32,11 @@ const Program: NextPage = () => {
                             In [1]:
                         </div>
                         <div className={styles.jupInnerCode}>
-                            <SyntaxHighlighter language="python" style={ghcolors} showLineNumbers customStyle={{
+                            <SyntaxHighlighter language="python" style={coy} showLineNumbers customStyle={{
                                 userSelect: 'text',
                                 border: '1px solid #d1d1d1',
                                 borderRadius: '2px',
+                                padding: '16px 0',
                             }}>
                                 {
                                     codeA(id.charAt(0))
@@ -85,9 +86,9 @@ const Program: NextPage = () => {
                         border: 'none',
                         marginBottom: '1rem',
                     }}
-                    onClick={() => {
-                        router.push(`${id}j`);
-                    }}
+                        onClick={() => {
+                            router.push(`${id}j`);
+                        }}
                     >Go to Jupyter Style</button>
                     <SyntaxHighlighter language="python" style={vscDarkPlus} showLineNumbers customStyle={{
                         borderRadius: '8px',
@@ -155,6 +156,6 @@ const outputA = (id: string | string[] | undefined) => {
     } catch (error) {
         return "";
     }
-} 
+}
 
 export default Program;
