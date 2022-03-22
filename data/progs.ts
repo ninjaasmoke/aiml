@@ -87,8 +87,8 @@ graph1.a_star_algorithm('A', 'D')`,
 	"2": {
 		"id": "2",
 		"name": "AO Star Search",
-		"code": 
-		`class Graph:
+		"code":
+			`class Graph:
 	def __init__(self, graph, heuristicNodeList, startNode):
 		self.graph = graph
 		self.H=heuristicNodeList
@@ -180,7 +180,7 @@ graph1 = {
 G1= Graph(graph1, h1, 'A')
 G1.applyAOStar()
 G1.printSolution()`,
-	"output": `HEURISTIC VALUES : {'A': 1, 'B': 6, 'C': 2, 'D': 12, 'E': 2, 'F': 1, 'G': 5, 'H': 7, 'I': 7, 'J': 1}
+		"output": `HEURISTIC VALUES : {'A': 1, 'B': 6, 'C': 2, 'D': 12, 'E': 2, 'F': 1, 'G': 5, 'H': 7, 'I': 7, 'J': 1}
 SOLUTION GRAPH : {}
 PROCESSING NODE : A
 -----------------------------------------------------------------------------------------
@@ -293,6 +293,73 @@ General: [['?', '?', '?', '?', '?', '?'], ['?', '?', '?', '?', '?', '?'],
 
 Specific: ['sunny' 'warm' '?' 'strong' '?' '?']
 General: [['sunny', '?', '?', '?', '?', '?'], ['?', 'warm', '?', '?', '?', '?']]`,
+	},
+	"4": {
+		"id": "4",
+		"name": "ID3",
+		"code":
+			`import numpy as np
+import pandas as pd
+
+data = pd.read_csv('play.csv')
+
+def entropy(target):
+	val,counts = np.unique(target,return_counts = True)
+	ent = 0
+	for i in range(len(val)):
+		c = counts[i]/sum(counts)
+		ent += -c*np.log2(c)
+	return ent
+
+def infoGain(data,features,target):
+	te = entropy(data[target])
+	val,counts = np.unique(data[features],return_counts = True)
+	eg = 0
+	for i in range(len(val)):
+		c = counts[i]/sum(counts)
+		eg += c*entropy(data[data[features] == val[i]][target])
+	InfoGain = te-eg
+	return InfoGain
+
+def id3(data, features, target, pnode):
+	
+	if len(np.unique(data[target])) == 1:
+		return np.unique(data[target])[0]
+	
+	if len(features) == 0:
+		return pnode
+	
+	pnode = np.unique(data[target])[np.argmax(np.unique(data[target])[1])]
+	
+	IG = [infoGain(data,f,target) for f in features]
+	index = np.argmax(IG)
+	
+	col = features[index]
+	tree = {col:{}}
+	
+	features = [f for f in features if f!=col]
+	
+	for val in np.unique(data[col]):
+		sub_data = data[data[col]==val].dropna()
+		subtree = id3(sub_data,features,target,pnode)
+		tree[col][val] = subtree
+	return tree
+
+testData = data.sample(frac = 0.1)
+data.drop(testData.index,inplace = True)
+
+target = 'play'
+features = data.columns[data.columns!=target]
+
+tree = id3(data,features,target,None)
+print (tree, end='\n\n')
+
+test = testData.to_dict('records')[0]
+print(test, '=>', id3(test,features,target,None))`,
+		"output": `{'outlook': {'Overcast': 'Yes', 'Rain': {'wind': {'Strong': 'No', 'Weak': 'Yes'}}, 
+'Sunny': {'temp': {'Cool': 'Yes', 'Hot': 'No', 'Mild': 'No'}}}}
+
+{'outlook': 'Sunny', 'temp': 'Mild', 'humidity': 'Normal', 'wind': 'Strong', 'play': 'Yes'} => Yes`,
 	},
 	"6": {
 		"id": "6",
