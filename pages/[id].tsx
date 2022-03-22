@@ -78,6 +78,17 @@ const Program: NextPage = () => {
                     <p>
                         or <code className={styles.instr}>CTRL + A</code> and <code className={styles.instr}>CTRL + C</code> to copy code
                     </p>
+                    <button style={{
+                        cursor: 'pointer',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        border: 'none',
+                        marginBottom: '1rem',
+                    }}
+                    onClick={() => {
+                        router.push(`${id}j`);
+                    }}
+                    >Go to Jupyter Style</button>
                     <SyntaxHighlighter language="python" style={vscDarkPlus} showLineNumbers customStyle={{
                         borderRadius: '8px',
                         padding: '40px 8px',
