@@ -138,6 +138,7 @@
 
   padding: 9px 4px 0 0;
   color: darkblue;
+  user-select: none;
 }
 
 .jupInnerCode {
