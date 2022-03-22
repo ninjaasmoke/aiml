@@ -354,7 +354,7 @@ target = 'play'
 features = data.columns[data.columns!=target]
 
 tree = id3(data,features,target,None)
-print (tree, end='\n\n')
+print (tree, end='\\n\\n')
 
 test = testData.to_dict('records')[0]
 print(test, '=>', id3(test,features,target,None))`,
