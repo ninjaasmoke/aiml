@@ -367,6 +367,73 @@ print(test, '=>', id3(test,features,target,None))`,
 
 {'outlook': 'Sunny', 'temp': 'Mild', 'humidity': 'Normal', 'wind': 'Strong', 'play': 'Yes'} => Yes`,
 	},
+	"5": {
+		"id": "5",
+		"repo": "https://github.com/ninjaasmoke/aiml-progs/tree/main/Backpropagation",
+		"name": "Backpropagation",
+		"code":
+		`import numpy as np
+
+X = np.array([[2,9], [3,6], [4,8]])
+y = np.array([[92], [86], [84]])
+
+X = X/np.amax(X, axis=0)
+y = y/100
+
+def sigmoid(x):
+	return 1/(1 + np.exp(-x))
+
+def sigmoid_grad(x):
+	return x*(1 - x)
+
+epoch = 1000
+eta = 0.1
+
+i_n = 2
+h_n = 3
+o_n = 1
+
+wh = np.random.uniform(size=(i_n, h_n))
+bh = np.random.uniform(size=(1, h_n))
+
+wout = np.random.uniform(size=(h_n, o_n))
+bout = np.random.uniform(size=(1,o_n))
+
+for i in range(epoch):
+	h_ip = np.dot(X, wh)
+	h_act = sigmoid(h_ip)
+	
+	o_ip = np.dot(h_act, wout) + bout
+	output = sigmoid(o_ip)
+	
+	Eo = y - output
+	outgrad = sigmoid_grad(output)
+	d_output = Eo* outgrad
+	
+	Eh = np.dot(d_output, wout.T)
+	hiddengrad = sigmoid_grad(h_act)
+	d_hidden = Eh* hiddengrad
+	
+	wout += np.dot(h_act.T, d_output) *eta
+	wh += np.dot(X.T,d_hidden) *eta
+
+print("Normal: ", X)
+print("\\nActual: ", y)
+print("\\nPred: ", p)`,
+		"output": `Normal:  [0.5 1. ]
+[0.75       0.66666667]
+[1.         0.88888889]
+
+Actual: 
+[0.92]
+[0.86]
+[0.84]
+
+Pred: 
+[0.8721367]
+[0.86917497]
+[0.87797585]`
+	},
 	"6": {
 		"id": "6",
 		"repo" : "https://github.com/ninjaasmoke/aiml-progs/tree/main/Naive%20Bayes",
