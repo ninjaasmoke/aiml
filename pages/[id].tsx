@@ -91,19 +91,19 @@ const Program: NextPage = () => {
                         onClick={() => {
                             router.push(`${id}j`);
                         }}
-                    >Go to Jupyter Style</button>
+                    >&rarr; Go to Jupyter Style</button>
+                    <br />
                     <button style={{
                         cursor: 'pointer',
                         borderRadius: '4px',
                         outline: 'none',
                         border: 'none',
                         marginBottom: '1rem',
-                        marginLeft: '1rem',
                     }}
                         onClick={() => {
                             window.open(repoA(id), '_blank');
                         }}
-                    >See Repository (CSV file, ipynb)</button>
+                    >&rarr; See Repository (CSV file, ipynb)</button>
                     <SyntaxHighlighter language="python" style={vscDarkPlus} showLineNumbers customStyle={{
                         borderRadius: '8px',
                         padding: '40px 8px',
