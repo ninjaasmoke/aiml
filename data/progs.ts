@@ -376,7 +376,7 @@ print(test, '=>', id3(test,features,target,None))`,
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 
-data = pd.read_csv('prima_indian_diabetes.csv')
+data = pd.read_csv('naivedata.csv')
 
 x = np.array(data.iloc[:,0:-1])
 y = np.array(data.iloc[:,-1])
