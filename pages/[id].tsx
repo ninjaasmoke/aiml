@@ -92,6 +92,18 @@ const Program: NextPage = () => {
                             router.push(`${id}j`);
                         }}
                     >Go to Jupyter Style</button>
+                    <button style={{
+                        cursor: 'pointer',
+                        borderRadius: '4px',
+                        outline: 'none',
+                        border: 'none',
+                        marginBottom: '1rem',
+                        marginLeft: '1rem',
+                    }}
+                        onClick={() => {
+                            window.open(repoA(id), '_blank');
+                        }}
+                    >See Repository (CSV file, ipynb)</button>
                     <SyntaxHighlighter language="python" style={vscDarkPlus} showLineNumbers customStyle={{
                         borderRadius: '8px',
                         padding: '40px 8px',
@@ -130,30 +142,18 @@ const Program: NextPage = () => {
 }
 
 
-const codeA = (id: string | string[] | undefined) => {
-    try {
-        if (id && (typeof id === "string") && progs[id] && progs[id]["code"])
-            return progs[id]["code"];
-        return "";
-    } catch (error) {
-        return "";
-    }
-}
+const codeA = (id: string | string[] | undefined) => getData(id, "code");
 
-const nameA = (id: string | string[] | undefined) => {
-    try {
-        if (id && (typeof id === "string") && progs[id] && progs[id]["name"])
-            return progs[id]["name"];
-        return "";
-    } catch (error) {
-        return "";
-    }
-}
+const nameA = (id: string | string[] | undefined) => getData(id, "name");
 
-const outputA = (id: string | string[] | undefined) => {
+const outputA = (id: string | string[] | undefined) => getData(id, "output");
+
+const repoA = (id: string | string[] | undefined) => getData(id, "repo");
+
+const getData = (id: string | string[] | undefined, type: string) => {
     try {
-        if (id && (typeof id === "string") && progs[id] && progs[id]["output"])
-            return progs[id]["output"];
+        if (id && (typeof id === "string") && progs[id] && progs[id][type])
+            return progs[id][type];
         return "";
     } catch (error) {
         return "";

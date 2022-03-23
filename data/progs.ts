@@ -1,6 +1,7 @@
 export const progs: { [id: string]: { [id: string]: string } } = {
 	"1": {
 		"id": "1",
+		"repo" : "https://github.com/ninjaasmoke/aiml-progs/tree/main/A%20Star",
 		"name": "A Star Search",
 		"code":
 			`class Graph:
@@ -86,6 +87,7 @@ graph1.a_star_algorithm('A', 'D')`,
 	},
 	"2": {
 		"id": "2",
+		"repo" : "https://github.com/ninjaasmoke/aiml-progs/tree/main/AO%20star",
 		"name": "AO Star Search",
 		"code":
 			`class Graph:
@@ -247,6 +249,7 @@ FOR GRAPH SOLUTION, TRAVERSE THE GRAPH FROM THE START NODE: A
 	},
 	"3": {
 		"id": "3",
+		"repo" : "https://github.com/ninjaasmoke/aiml-progs/tree/main/Candidate",
 		"name": "Candidate Elimination",
 		"code":
 			`import numpy as np
@@ -296,6 +299,7 @@ General: [['sunny', '?', '?', '?', '?', '?'], ['?', 'warm', '?', '?', '?', '?']]
 	},
 	"4": {
 		"id": "4",
+		"repo": "https://github.com/ninjaasmoke/aiml-progs/tree/main/ID3",
 		"name": "ID3",
 		"code":
 			`import numpy as np
@@ -365,6 +369,7 @@ print(test, '=>', id3(test,features,target,None))`,
 	},
 	"6": {
 		"id": "6",
+		"repo" : "https://github.com/ninjaasmoke/aiml-progs/tree/main/Naive%20Bayes",
 		"name": "Naive Bayes Classifier",
 		"code":
 			`import pandas as pd
@@ -401,6 +406,7 @@ Accuracy:  0.75
 	},
 	"7": {
 		"id": "7",
+		"repo": "https://github.com/ninjaasmoke/aiml-progs/tree/main/K%20means",
 		"name": "K Means Clustering",
 		"code":
 			`import pandas as pd
@@ -436,6 +442,7 @@ drawGraph(labels, "Gaussian Cluster")`
 	},
 	"8": {
 		"id": "8",
+		"repo": "https://github.com/ninjaasmoke/aiml-progs/tree/main/KNN",
 		"name": "K Nearest Neighbors",
 		"code":
 			`from sklearn.model_selection import train_test_split
