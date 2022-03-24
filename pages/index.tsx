@@ -42,7 +42,7 @@ const Home: NextPage = () => {
         </div>
         <div
         onClick={() => {
-          window.open("", "_blank");
+          window.open("https://github.com/ninjaasmoke/aiml/tree/main/public/python", "_blank");
         }}
           style={{
             cursor: 'pointer',
