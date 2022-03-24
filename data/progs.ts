@@ -1,7 +1,7 @@
 export const progs: { [id: string]: { [id: string]: string } } = {
 	"1": {
 		"id": "1",
-		"repo" : "https://github.com/ninjaasmoke/aiml-progs/tree/main/A%20Star",
+		"repo": "https://github.com/ninjaasmoke/aiml-progs/tree/main/A%20Star",
 		"name": "A Star Search",
 		"code":
 			`class Graph:
@@ -87,7 +87,7 @@ graph1.a_star_algorithm('A', 'D')`,
 	},
 	"2": {
 		"id": "2",
-		"repo" : "https://github.com/ninjaasmoke/aiml-progs/tree/main/AO%20star",
+		"repo": "https://github.com/ninjaasmoke/aiml-progs/tree/main/AO%20star",
 		"name": "AO Star Search",
 		"code":
 			`class Graph:
@@ -249,7 +249,7 @@ FOR GRAPH SOLUTION, TRAVERSE THE GRAPH FROM THE START NODE: A
 	},
 	"3": {
 		"id": "3",
-		"repo" : "https://github.com/ninjaasmoke/aiml-progs/tree/main/Candidate",
+		"repo": "https://github.com/ninjaasmoke/aiml-progs/tree/main/Candidate",
 		"name": "Candidate Elimination",
 		"code":
 			`import numpy as np
@@ -372,7 +372,7 @@ print(test, '=>', id3(test,features,target,None))`,
 		"repo": "https://github.com/ninjaasmoke/aiml-progs/tree/main/Backpropagation",
 		"name": "Backpropagation",
 		"code":
-		`import numpy as np
+			`import numpy as np
 
 X = np.array([[2,9], [3,6], [4,8]])
 y = np.array([[92], [86], [84]])
@@ -436,7 +436,7 @@ Pred:
 	},
 	"6": {
 		"id": "6",
-		"repo" : "https://github.com/ninjaasmoke/aiml-progs/tree/main/Naive%20Bayes",
+		"repo": "https://github.com/ninjaasmoke/aiml-progs/tree/main/Naive%20Bayes",
 		"name": "Naive Bayes Classifier",
 		"code":
 			`import pandas as pd
@@ -531,5 +531,52 @@ for r in range(0,len(x)):
     print("Sample:", x[r], " Actual:", y[r], " Predicted:",pred[r])
     
 print("Accuracy :" , model.score(x,y));`
-	}
+	},
+	"9": {
+		"id": "9",
+		"repo": "https://github.com/ninjaasmoke/aiml-progs/tree/main/LocallyWeightedRegression",
+		"name": "Locally Weighted Regression",
+		"code": `from matplotlib import pyplot as plt
+import numpy as np
+import pandas as pd
+
+def localWeigh(point, X, ymat, k):
+	m, n = np.shape(X)
+	weights = np.mat(np.eye(m))
+	for i in range(m):
+		diff = point - X[i]
+		weights[i,i] = np.exp(diff*diff.T/(-2.0*k**2))
+	W = (X.T * (weights*X)).I * (X.T*(weights*ymat.T))
+	return W
+
+def localWeightReg(X,ymat,k):
+	m,n = np.shape(X)
+	ypred = np.zeros(m)
+	for i in range(m):
+		ypred[i] = X[i] * localWeigh(X[i],X,ymat,k)
+	return ypred
+
+def plott(X,pred):
+	sortIndex = X[:,1].argsort(0)
+	xsort = X[sortIndex][:,0][:,1]
+	ysort = pred[sortIndex]
+	plt.scatter(x,y,color='green')
+	plt.plot(xsort,ysort,color="red",linewidth=5)
+	plt.xlabel('Total bill')
+	plt.ylabel('Tips')
+	plt.show()
+	return
+
+data = pd.read_csv('data10.csv')
+x=data['total_bill']
+y = data['tip']
+xmat = np.mat(x)
+ymat = np.mat(y)
+size = np.shape(xmat)[1]
+ones = np.mat(np.ones(size))
+X=np.hstack((ones.T,xmat.T))
+pred = localWeightReg(X,ymat,3)
+plott(X,pred)`,
+		"output": ``,
+	},
 }; 
